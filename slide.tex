@@ -5,14 +5,25 @@
 % other packages
 \usepackage{latexsym,amsmath,xcolor,multicol,booktabs,calligra}
 \usepackage{graphicx,pstricks,listings,stackengine}
+% 列表缩进与间距：不要用 enumitem，直接在 beamer 中手动设定
+\setlength{\leftmargini}{1.4em}
+\setlength{\leftmarginii}{1.2em}
 
-\author{
+\setbeamerfont{block title}{size=\normalsize}
+\setbeamerfont{block body}{size=\small}
+\setbeamerfont{alertblock title}{size=\normalsize}
+\setbeamerfont{alertblock body}{size=\small}
+\setlength{\leftmargini}{1.4em}
+\setlength{\leftmarginii}{1.2em}
+
+
+\author[Zhennan Zhao]{
 {\zihao{-4}\hspace{0.1em}赵\hspace{0.32em}圳\hspace{0.32em}楠\hspace{0.1em}}\\[2pt]
 {\scalebox{0.58}[0.58]{Zhennan Zhao}}
 }
 \title{2024级直博生综合考试}
-\subtitle{个人情况与研究计划汇报}
-\institute{上海大学理学院}
+\subtitle{个人情况、科研准备与研究设想}
+\institute{上海大学理学院数学系}
 \date{2026年3月12日}
 \usepackage{SHU}
 
@@ -55,274 +66,512 @@
 
 % ========================================文件开始========================================
 \begin{document}
-
-% *******************************************
-% COVER FRAME
-% ******************************************* 
 \kaishu
+
+% ========================================
+% 封面
+% ========================================
 \begin{frame}
-    \begin{figure}[htpb]
-        \begin{center}
-            \includegraphics[width=0.4\linewidth]{pic/SHU_Logo.png}
-        \end{center}
-    \end{figure}
-    \titlepage%生成封面帧
+    \titlepage
 \end{frame}
 
-% *******************************************
-% CATALOGUE
-% ******************************************* 
-\begin{frame}
-    \tableofcontents[sectionstyle=show,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+% ========================================
+% 目录
+% ========================================
+\begin{frame}{汇报提纲}
+    \tableofcontents[sectionstyle=show,subsectionstyle=hide]
 \end{frame}
+ 
+% ========================================
+\section{个人简介与研究兴趣}
+% ========================================
+\begin{frame}{个人简介}
+\small
 
-% *******************************************
-% SECTION
-% ******************************************* 
-\section{基介绍}%章
-
-\begin{frame}{基本介绍}
-    \begin{itemize}
-        \item 本模版是从\href{https://github.com/Trinkle23897/THU-Beamer-Theme}{\color{purple}{清华Beamer模版}}\cite{origin}修改而来
-        \item 模版的修改和使用参考了以下资料：\cite{ref1}、\cite{ref2}、\cite{ref3}、\cite{ref4}
-        \item Github项目地址：\newline https://github.com/LaneGong/SHU-Beamer-Theme \newline 如果有 bug 或者 feature request 可以去里面提 issue
-    \end{itemize}
-\end{frame}
-
-% *******************************************
-% SECTION
-% *******************************************
-\section{使用说明(部分)}
-
-% *******************************************
-% SUBSECTION
-% *******************************************
-\subsection{列表}%节
-\begin{frame}{无序列表}%帧
-    \begin{itemize}[<+-| alert@+>] 
-    %当然，除了alert，手动在里面插 \pause 也行 => 每个item暂停，呈现动画效果
-        \item 大家都会\LaTeX{}，好多学校都有自己的Beamer主题
-        \item 中文支持请选择 XeLaTeX 编译选项
-        \item ...
-        \begin{itemize}%[<+-| alert@+>]
-            \item ...
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{有序列表}
-    \begin{enumerate}[<+-| alert@+>]
-        \item hh
-        \item xx
-        \item ...
-    \end{enumerate}
-\end{frame}
-
-% *******************************************
-% SUBSECTION
-% *******************************************
-\subsection{表格}
-\begin{frame}{表格}
-    \begin{table}[h]
-        \centering
-        \begin{tabular}{c|c}
-            Microsoft\textsuperscript{\textregistered}  Word & \LaTeX \\
-            \hline
-            文字处理工具 & 专业排版软件 \\
-            容易上手，简单直观 & 容易上手 \\
-            所见即所得 & 所见即所想，所想即所得 \\
-            高级功能不易掌握 & 进阶难，但一般用不到 \\
-            处理长文档需要丰富经验 & 和短文档处理基本无异 \\
-            花费大量时间调格式 & 无需担心格式，专心作者内容 \\
-            公式排版差强人意 & 尤其擅长公式排版 \\
-            二进制格式，兼容性差 & 文本文件，易读、稳定 \\
-            付费商业许可 & 自由免费使用 \\
-        \end{tabular}
-    \end{table}
-\end{frame}
-
-\begin{frame}[fragile]{三线表}
-    \begin{columns}
-    \column{.6\textwidth}
-\begin{lstlisting}[language=TeX]
-    \begin{table}[htbp]
-      \caption{编号与含义}
-      \label{tab:number}
-      \centering
-      \begin{tabular}{cl}
-        \toprule
-        编号 & 含义 \\
-        \midrule
-        1 & 4.0 \\
-        2 & 3.7 \\
-        \bottomrule
-      \end{tabular}
-    \end{table}
-    公式~(\ref{eq:vsphere}) 的
-    编号与含义请参见
-    表~\ref{tab:number}。
-\end{lstlisting}
-    \column{.4\textwidth}
-        \begin{table}[htpb]
-            \centering
-            \caption{编号与含义}
-            \label{tab:number}
-            \begin{tabular}{cl}\toprule
-                编号 & 含义 \\\midrule
-                1 & 4.0\\
-                2 & 3.7\\\bottomrule
-            \end{tabular}
-        \end{table}
-    \end{columns}
-    
-\end{frame}
-
-% *******************************************
-% SUBSECTION
-% *******************************************
-\subsection{公式}
-\begin{frame}{公式}
-    \begin{exampleblock}{无编号公式} % 加 * 
-        \begin{equation*}
-                J(\theta) = \mathbb{E}_{\pi_\theta}[G_t] = \sum_{s\in\mathcal{S}} d^\pi (s)V^\pi(s)=\sum_{s\in\mathcal{S}} d^\pi(s)\sum_{a\in\mathcal{A}}\pi_\theta(a|s)Q^\pi(s,a)
-        \end{equation*}
-    \end{exampleblock}
-    
-    \begin{exampleblock}{多行多列公式\footnote{如果公式中有文字出现，请用 $\backslash$mathrm\{\} 或者 $\backslash$text\{\} 包含，不然就会变成 $clip$，在公式里看起来比 $\mathrm{clip}$ 丑非常多。}}%使用 \mathrm{...} 可以将括号内的字母由数学斜体变为正体，即罗马体。
-        % 使用 & 分隔
-        \begin{align}
-            Q_\mathrm{target}&=r+\gamma Q^\pi(s^\prime, \pi_\theta(s^\prime)+\epsilon)\nonumber\\
-            \epsilon&\sim\mathrm{clip}(\mathcal{N}(0, \sigma), -c, c)\nonumber
-        \end{align}
-    \end{exampleblock}
-\end{frame}
-
-\begin{frame}{编号多行公式}
-    \begin{exampleblock}{编号多行公式}
-        % Taken from Mathmode.tex
-        \begin{multline}
-            A=\lim_{n\rightarrow\infty}\Delta x\left(a^{2}+\left(a^{2}+2a\Delta x+\left(\Delta x\right)^{2}\right)\right.\label{eq:reset}\\
-            +\left(a^{2}+2\cdot2a\Delta x+2^{2}\left(\Delta x\right)^{2}\right)\\
-            +\left(a^{2}+2\cdot3a\Delta x+3^{2}\left(\Delta x\right)^{2}\right)\\
-            +\ldots\\
-            \left.+\left(a^{2}+2\cdot(n-1)a\Delta x+(n-1)^{2}\left(\Delta x\right)^{2}\right)\right)\\
-            =\frac{1}{3}\left(b^{3}-a^{3}\right)
-        \end{multline}
-    \end{exampleblock}
-    \begin{itemize}
-        \item 更多内容请看 \href{https://zh.wikipedia.org/wiki/Help:数学公式}{\color{purple}{这里}}
-    \end{itemize}
-\end{frame}
-
-% *******************************************
-% SUBSECTION
-% *******************************************
-\subsection{图形与分栏}
-\begin{frame}{图形与分栏}
-    % From thuthesis user guide.
-    \begin{minipage}[c]{0.3\linewidth}
-        \psset{unit=0.8cm}
-        \begin{pspicture}(-1.75,-3)(3.25,4)
-            \psline[linewidth=0.25pt](0,0)(0,4)
-            \rput[tl]{0}(0.2,2){$\vec e_z$}
-            \rput[tr]{0}(-0.9,1.4){$\vec e$}
-            \rput[tl]{0}(2.8,-1.1){$\vec C_{ptm{ext}}$}
-            \rput[br]{0}(-0.3,2.1){$\theta$}
-            \rput{25}(0,0){%
-            \psframe[fillstyle=solid,fillcolor=lightgray,linewidth=.8pt](-0.1,-3.2)(0.1,0)}
-            \rput{25}(0,0){%
-            \psellipse[fillstyle=solid,fillcolor=yellow,linewidth=3pt](0,0)(1.5,0.5)}
-            \rput{25}(0,0){%
-            \psframe[fillstyle=solid,fillcolor=lightgray,linewidth=.8pt](-0.1,0)(0.1,3.2)}
-            \rput{25}(0,0){\psline[linecolor=red,linewidth=1.5pt]{->}(0,0)(0.,2)}
-%           \psRotation{0}(0,3.5){$\dot\phi$}
-%           \psRotation{25}(-1.2,2.6){$\dot\psi$}
-            \psline[linecolor=red,linewidth=1.25pt]{->}(0,0)(0,2)
-            \psline[linecolor=red,linewidth=1.25pt]{->}(0,0)(3,-1)
-            \psline[linecolor=red,linewidth=1.25pt]{->}(0,0)(2.85,-0.95)
-            \psarc{->}{2.1}{90}{112.5}
-            \rput[bl](.1,.01){C}
-        \end{pspicture}
-    \end{minipage}\hspace{1cm}
-    \begin{minipage}{0.5\linewidth}
-        \medskip
-        %\hspace{2cm}
-        \begin{figure}[h]
-            \centering
-            \includegraphics[height=.4\textheight]{pic/dtmf.pdf}
-        \end{figure}
-    \end{minipage}
-\end{frame}
-
-\begin{frame}{作图}
-    \begin{itemize}
-        \item 矢量图 eps, ps, pdf
+\begin{columns}[T,totalwidth=\textwidth]
+    \begin{column}{0.57\textwidth}
+        {\setlength{\itemsep}{0.45em}
         \begin{itemize}
-            \item METAPOST, pstricks, pgf $\ldots$
-            \item Xfig, Dia, Visio, Inkscape $\ldots$
-            \item Matlab / Excel 等保存为 pdf
+            \item \textbf{姓名：}赵圳楠
+            \item \textbf{培养层次：}2024级数学学科直博生
+            \item \textbf{所属单位：}上海大学理学院数学系
+            \item \textbf{导师：}赖耕教授
+            \item \textbf{拟研究方向：}偏微分方程（PDE）
+            \item \textbf{重点关注：}非线性双曲守恒律与黎曼问题
         \end{itemize}
-        \item 标量图 png, jpg, tiff $\ldots$
-        \begin{itemize}
-            \item 提高清晰度，避免发虚
-            \item 应尽量避免使用
-        \end{itemize}
+        }
+    \end{column}
+
+
+    \begin{column}{0.39\textwidth}
+        \begin{alertblock}{科研兴趣关键词}
+            {\setlength{\itemsep}{0.40em}
+            \begin{itemize}
+                \item 双曲守恒律
+                \item 可压 Euler 方程组
+                \item 一维/二维黎曼问题
+                \item 激波、稀疏波、接触间断
+                \item 波的相互作用与稳定性
+            \end{itemize}
+            }
+        \end{alertblock}
+    \end{column}
+\end{columns}
+
+\vspace{0.35em}
+
+\begin{block}{个人定位}
+现阶段定位为：以\textbf{双曲型偏微分方程}为核心方向，
+以\textbf{黎曼问题}为主要切入点，
+在导师指导下逐步学习守恒律理论、Euler 方程组及典型波现象的分析方法，
+为后续开展实质性研究做好准备。
+\end{block}
+
+\end{frame}
+
+\begin{frame}{汇报思路：以科研准备为主线}
+\begin{block}{本次汇报重点}
+相较于一般性的个人介绍，本次汇报更侧重展示本人在\textbf{科研方向选择、知识储备、问题理解和后续研究计划}方面的准备情况。
+\end{block}
+
+\begin{itemize}
+    \item 已完成课程学习，具备继续开展博士研究的基础条件；
+    \item 研究兴趣与导师方向高度契合，聚焦\textbf{非线性双曲守恒律方程组及其黎曼问题}；
+    \item 当前重点是夯实理论基础、系统阅读文献、凝练可操作的研究问题；
+    \item 后续希望在双曲型PDE若干典型模型上形成稳定的研究积累。
+\end{itemize}
+\end{frame}
+
+
+
+
+% ========================================
+\section{课程基础与学术准备}
+% ========================================
+
+
+
+% ========================================
+% 课程基础与学术准备：微调美化版
+% ========================================
+
+% ----------------------------------------
+% 第1页：课程修读概览
+% 调整点：
+% 1. 指标字体缩小
+% 2. 下半页补充“课程完成情况解读”
+% 3. 页面上下信息更均衡
+% ----------------------------------------
+\begin{frame}{课程修读概览}
+\vspace{-1.2em} % 【修正1】大幅上移整体内容，充分利用标题下方空闲的白色区域
+
+% ================= 上半部分：四个数据框 =================
+\begin{columns}[T, onlytextwidth]
+    \begin{column}{0.48\textwidth}
+        \begin{block}{已修总学分}
+            % 【修正2】将上半部分方框高度压缩至 0.5cm
+            \begin{minipage}[c][0.5cm][c]{\textwidth}
+                \centering
+                {\small 57.0}
+            \end{minipage}
+        \end{block}
+        
+        \vspace{0.05em} % 极限压缩上下框间距
+        
+        \begin{block}{加权平均分}
+            \begin{minipage}[c][0.5cm][c]{\textwidth}
+                \centering
+                {\small 90.63}
+            \end{minipage}
+        \end{block}
+    \end{column}
+    
+    \begin{column}{0.48\textwidth}
+        \begin{block}{课程通过情况}
+            \begin{minipage}[c][0.5cm][c]{\textwidth}
+                \centering
+                {\small 全部通过}
+            \end{minipage}
+        \end{block}
+        
+        \vspace{0.05em}
+        
+        \begin{block}{加权绩点}
+            \begin{minipage}[c][0.5cm][c]{\textwidth}
+                \centering
+                {\small 3.77 / 4.0}
+            \end{minipage}
+        \end{block}
+    \end{column}
+\end{columns}
+
+\vspace{0.1em} % 上下两部分的过渡间距收紧
+
+% ================= 下半部分：两个长文本框 =================
+\begin{columns}[T, onlytextwidth]
+    \begin{column}{0.48\textwidth}
+        \begin{block}{课程完成情况解读}
+            % 【修正3】高度从 3.4cm 大幅缩减至 2.8cm，确保方框底边露出水面！
+            \begin{minipage}[t][2.8cm][t]{\textwidth}
+                \footnotesize
+                \vspace{0.1em}
+                \begin{itemize}
+                    \setlength{\itemsep}{0.1em} % 同步压缩列表间距，防止文字溢出方框
+                    \item 已较系统完成博士阶段前期课程修读任务；
+                    \item 成绩整体稳定，说明课程学习状态较为扎实；
+                    \item 当前已具备从课程训练逐步过渡到研究训练的基础条件。
+                \end{itemize}
+            \end{minipage}
+        \end{block}
+    \end{column}
+    
+    \begin{column}{0.48\textwidth}
+        \begin{alertblock}{阶段性判断}
+            % 与左侧保持绝对一致的 2.8cm 高度
+            \begin{minipage}[t][2.8cm][t]{\textwidth}
+                \footnotesize
+                \vspace{0.1em}
+                目前已完成现阶段培养方案要求的主要课程训练。
+                
+                \vspace{0.5em}
+                下一阶段的重点将由“课程学习”逐步转向“文献阅读、问题理解与研究准备”。
+            \end{minipage}
+        \end{alertblock}
+    \end{column}
+\end{columns}
+
+\end{frame}
+
+% ----------------------------------------
+% 第2页：课程结构与方向关联
+% 调整点：
+% 1. 三列模块更紧凑
+% 2. 减少零散断行
+% 3. 底部总结更自然
+% ----------------------------------------
+\begin{frame}{课程结构与方向关联}
+\small
+
+\begin{columns}[T,totalwidth=\textwidth]
+    \begin{column}{0.32\textwidth}
+        \begin{block}{分析基础}
+        \footnotesize
+        \textbf{代表课程：}\\
+        泛函分析（98）、实分析（84）、拓扑学（96）、几何分析（92）
+
+        \vspace{0.45em}
+        \textbf{主要作用：}\\
+        为函数空间、收敛与估计、抽象结构理解提供基础。
+        \end{block}
+    \end{column}
+
+    \begin{column}{0.32\textwidth}
+        \begin{block}{PDE 相关}
+        \footnotesize
+        \textbf{代表课程：}\\
+        微分方程（86）、可积偏微分方程（97）、物理学与偏微分方程（78）
+
+        \vspace{0.45em}
+        \textbf{主要作用：}\\
+        帮助理解 PDE 模型、解的结构及波现象的初步认识。
+        \end{block}
+    \end{column}
+
+    \begin{column}{0.32\textwidth}
+        \begin{block}{方法补充}
+        \footnotesize
+        \textbf{代表课程：}\\
+        有限元方法（96）、统计学习与人工智能基础（89）、学术英语写作与交流（94）
+
+        \vspace{0.45em}
+        \textbf{主要作用：}\\
+        补充数值视角、交叉方法与学术表达能力。
+        \end{block}
+    \end{column}
+\end{columns}
+
+\vspace{0.3em}
+
+\begin{alertblock}{与当前研究方向直接相关的课程}
+\footnotesize
+泛函分析、微分方程、可积偏微分方程、有限元方法，
+构成了我进一步进入\textbf{双曲型偏微分方程、守恒律与黎曼问题}研究的主要课程基础。
+\end{alertblock}
+
+\end{frame}
+
+% ----------------------------------------
+% 第3页：课程训练对后续研究的支撑
+% 调整点：
+% 1. 压缩 2×2 block 的文字密度
+% 2. 结论整体上移
+% 3. 用 alertblock 承接结论，不再让底部显得松散
+% ----------------------------------------
+\begin{frame}{课程训练对后续研究的支撑}
+\small
+
+\setlength{\columnsep}{0.6em}
+
+\begin{columns}[T,totalwidth=\textwidth]
+    \begin{column}{0.49\textwidth}
+        \begin{block}{理论准备}
+        \begin{minipage}[t][1.55cm][t]{\linewidth}
+        \footnotesize
+        \raggedright
+        通过泛函分析、实分析、拓扑学等课程训练，
+        我逐步建立了对函数空间、收敛性、先验估计与严格证明方式的理解。
+        \end{minipage}
+        \end{block}
+
+        \vspace{0.02em}
+
+        \begin{block}{方法补充}
+        \begin{minipage}[t][1.35cm][t]{\linewidth}
+        \footnotesize
+        \raggedright
+        有限元方法等课程补充了数值分析视角，
+        有助于从计算与现象层面理解 PDE 模型及其解的行为。
+        \end{minipage}
+        \end{block}
+    \end{column}
+
+    \begin{column}{0.49\textwidth}
+        \begin{block}{方向进入}
+        \begin{minipage}[t][1.55cm][t]{\linewidth}
+        \footnotesize
+        \raggedright
+        微分方程、可积偏微分方程等课程，
+        帮助我逐步建立对 PDE 基本结构、典型波形和研究问题的认识。
+        \end{minipage}
+        \end{block}
+
+        \vspace{0.02em}
+
+        \begin{block}{学术训练}
+        \begin{minipage}[t][1.35cm][t]{\linewidth}
+        \footnotesize
+        \raggedright
+        学术英语写作与交流、学术规范与写作等课程，
+        为后续文献阅读、学术表达与研究写作提供了基础准备。
+        \end{minipage}
+        \end{block}
+    \end{column}
+\end{columns}
+
+\vspace{0.06em}
+
+\begin{alertblock}{本部分结论}
+\footnotesize
+课程学习的价值不只是“完成成绩要求”，更重要的是帮助我完成了从
+“系统学习知识”到“逐步进入研究问题”的过渡。
+\end{alertblock}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ========================================
+\section{科研经历、学习方向与内容准备}
+% ========================================
+\begin{frame}{科研经历与现阶段学术积累}
+\begin{itemize}
+    \item 当前处于博士培养早期阶段，暂未形成正式论文成果；
+    \item 现阶段工作的重点是：\textbf{课程学习、方向聚焦、文献阅读、问题准备}；
+    \item 已将兴趣集中于\textbf{非线性双曲守恒律方程组及其黎曼问题}，并以导师研究方向为参照进行系统性学习规划；
+    \item 在竞赛与学生工作中积累了建模、表达和组织协调能力：
+    \begin{itemize}
+        \item 华为杯研究生数学建模竞赛三等奖；
+        \item 担任团支书，负责组织相关活动。
     \end{itemize}
-    \begin{figure}[htpb]
-        \centering
-        \includegraphics[width=0.2\linewidth]{pic/SHU_Logo.png}
-        \caption{这个校徽就是矢量图}
-    \end{figure}
+\end{itemize}
+
+\begin{alertblock}{本页表述策略}
+本次PPT更突出“\textbf{科研准备和研究潜力}”，即通过系统学习与问题意识展示进入博士研究阶段的可持续性。
+\end{alertblock}
 \end{frame}
 
-% *******************************************
-% SUBSECTION
-% *******************************************
-\subsection{Latex常用命令}
+\begin{frame}{围绕导师方向拟系统学习的三个模块}
+\begin{block}{模块一：双曲守恒律与一维黎曼问题}
+重点学习守恒律基本理论、弱解与熵条件、激波与稀疏波结构、波前跟踪思想，以及典型一维黎曼问题的求解框架。
+\end{block}
 
-\begin{frame}[fragile]{\LaTeX{} 常用命令}
-    \begin{exampleblock}{命令}
-        \centering
-        \footnotesize
-        \begin{tabular}{llll}
-            \cmd{chapter} & \cmd{section} & \cmd{subsection} & \cmd{paragraph} \\
-            章 & 节 & 小节 & 带题头段落 \\\hline
-            \cmd{centering} & \cmd{emph} & \cmd{verb} & \cmd{url} \\
-            居中对齐 & 强调 & 原样输出 & 超链接 \\\hline
-            \cmd{footnote} & \cmd{item} & \cmd{caption} & \cmd{includegraphics} \\
-            脚注 & 列表条目 & 标题 & 插入图片 \\\hline
-            \cmd{label} & \cmd{cite} & \cmd{ref} \\
-            标号 & 引用参考文献 & 引用图表公式等\\\hline
-        \end{tabular}
-    \end{exampleblock}
-    \begin{exampleblock}{环境}
-        \centering
-        \footnotesize
-        \begin{tabular}{lll}
-            \env{table} & \env{figure} & \env{equation}\\
-            表格 & 图片 & 公式 \\\hline
-            \env{itemize} & \env{enumerate} & \env{description}\\
-            无编号列表 & 编号列表 & 描述 \\\hline
-        \end{tabular}
-    \end{exampleblock}
+\begin{block}{模块二：可压Euler方程组与二维黎曼问题}
+重点学习可压流体模型、二维自相似解结构、四象限型初值问题、接触间断与激波相互作用，以及二维几何结构带来的新困难。
+\end{block}
+
+\begin{block}{模块三：复杂流动中的自由边界与反应流问题}
+结合导师方向，重点关注激波反射、超声速射流、爆燃/爆轰波、气体向真空扩散等问题中自由边界、波系耦合与稳定性分析。
+\end{block}
 \end{frame}
 
+\begin{frame}{已纳入PPT展示的“科研学习内容”}
+\small
+\begin{enumerate}
+    \item \textbf{基础理论层面：}
+    已系统梳理双曲型方程、守恒律、弱解、熵解、特征线方法等核心概念；
+    \item \textbf{模型理解层面：}
+    重点关注可压Euler方程组及其在激波、稀疏波、接触间断中的基本波结构；
+    \item \textbf{问题意识层面：}
+    关注一维到二维推广中出现的结构复杂性，以及波相互作用、自由边界、真空状态等难点；
+    \item \textbf{方法层面：}
+    初步了解特征分解、先验估计、自相似变换、构造解与稳定性分析等研究思路；
+    \item \textbf{文献阅读层面：}
+    围绕二维黎曼问题、激波反射、超声速射流等主题开展阶段性阅读和笔记整理。
+\end{enumerate}
 
-% *******************************************
-% SECTION
-% *******************************************
-\section{参考文献}
+\begin{alertblock}{说明}
+本页内容适合作为“\textbf{当前已开展的方向性学习}”进行展示，后续可根据你的实际阅读进度继续细化或替换。
+\end{alertblock}
+\end{frame}
 
-\begin{frame}[allowframebreaks]
-    \bibliography{ref.bib}
-    \bibliographystyle{alpha}
-    % 如果参考文献太多的话，可以像下面这样调整字体：
-    % \tiny\bibliographystyle{alpha}
+% ========================================
+\section{研究方向理解与问题认识}
+% ========================================
+\begin{frame}{对导师研究方向的理解}
+\begin{itemize}
+    \item 赖耕老师的研究主要集中在\textbf{非线性双曲守恒律方程组的理论及应用}；
+    \item 具体包括\textbf{可压Euler方程组的二维黎曼问题}，以及气体向真空扩散、激波反射、管道流、超声速射流、爆燃波和爆轰波等数学问题；
+    \item 这一方向兼具\textbf{理论深度}与\textbf{应用背景}：一方面关注解的存在性、结构与稳定性，另一方面与流体、燃烧和高速气体动力学问题密切相关；
+    \item 对我而言，该方向的吸引力在于：既有明确的数学问题导向，也有丰富的物理背景支撑，适合作为博士阶段长期深入的研究主线。
+\end{itemize}
+\end{frame}
+
+\begin{frame}{我对该方向核心问题的理解}
+\begin{block}{为什么选择黎曼问题作为切入点？}
+黎曼问题是双曲守恒律研究中的基本模型，它能够集中体现激波、稀疏波、接触间断等典型波结构的形成机制，是理解更复杂初边值问题的重要起点。
+\end{block}
+
+\begin{itemize}
+    \item \textbf{从一维到二维：}二维问题中的波相互作用更复杂，几何结构和自由边界现象更加突出；
+    \item \textbf{从理想到实际：}真空、反应项、边界效应、喷流和反射等因素会显著提高问题难度；
+    \item \textbf{从定性到定量：}不仅需要知道“会出现什么波”，还需要分析其相互作用机制、存在区间和稳定性特征。
+\end{itemize}
+
+\begin{alertblock}{个人认识}
+我希望以黎曼问题为基本切入点，在扎实掌握经典理论的基础上，逐步过渡到二维、自由边界和反应流等更复杂的问题。
+\end{alertblock}
+\end{frame}
+
+% ========================================
+\section{博士阶段研究设想}
+% ========================================
+\begin{frame}{博士阶段拟开展研究工作的设想}
+\begin{enumerate}
+    \item \textbf{第一阶段：夯实理论基础}
+    \begin{itemize}
+        \item 深入学习双曲守恒律、Euler方程组、弱解与熵解理论；
+        \item 系统阅读导师团队相关工作与经典文献，形成自己的知识框架。
+    \end{itemize}
+
+    \item \textbf{第二阶段：凝练研究问题}
+    \begin{itemize}
+        \item 在导师指导下聚焦一个具体模型或具体场景；
+        \item 从二维黎曼问题、激波反射、真空边界或超声速射流等方向中寻找可切入问题。
+    \end{itemize}
+
+    \item \textbf{第三阶段：开展实质研究}
+    \begin{itemize}
+        \item 尝试从存在性、唯一性、结构分析、稳定性等角度开展工作；
+        \item 在必要时结合数值实验辅助理解理论现象，争取形成阶段性成果。
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{当前更具体的学习/研究切入设想}
+\small
+
+\setlength{\columnsep}{0.6em}
+
+\begin{columns}[T,totalwidth=\textwidth]
+    \begin{column}{0.32\textwidth}
+        \begin{block}{方向A：黎曼问题}
+        \begin{minipage}[t][3.15cm][t]{\linewidth}
+        \footnotesize
+        \raggedright
+        {\setlength{\itemsep}{0.38em}
+        \begin{itemize}
+            \item 自相似框架下的波结构分类
+            \item 接触间断与激波的相互作用
+            \item 特定初值构型下解的局部与整体行为
+        \end{itemize}}
+        \end{minipage}
+        \end{block}
+    \end{column}
+
+    \begin{column}{0.32\textwidth}
+        \begin{block}{方向B：自由边界}
+        \begin{minipage}[t][3.15cm][t]{\linewidth}
+        \footnotesize
+        \raggedright
+        {\setlength{\itemsep}{0.38em}
+        \begin{itemize}
+            \item 真空边界附近的解结构
+            \item 超声速喷流中的拦截激波
+            \item 几何边界对流动形态的影响
+        \end{itemize}}
+        \end{minipage}
+        \end{block}
+    \end{column}
+
+    \begin{column}{0.32\textwidth}
+        \begin{block}{方向C：反应流}
+        \begin{minipage}[t][3.15cm][t]{\linewidth}
+        \footnotesize
+        \raggedright
+        {\setlength{\itemsep}{0.38em}
+        \begin{itemize}
+            \item 反应项引入后的波系耦合
+            \item 爆燃/爆轰波中的传播机制
+            \item 数学模型与物理背景的对应关系
+        \end{itemize}}
+        \end{minipage}
+        \end{block}
+    \end{column}
+\end{columns}
+
+\vspace{0.1em}
+
+\begin{alertblock}{总体原则}
+\footnotesize
+以\textbf{黎曼问题}为主要切入，优先从\textbf{可控、经典、可积累}的问题入手，
+再逐步过渡到\textbf{自由边界、喷流与反应流}等更复杂模型；
+在推进过程中同步关注\textbf{数学结构、物理背景与分析方法}之间的对应关系。
+\end{alertblock}
+
+\end{frame}
+
+% ========================================
+\section{总结}
+% ========================================
+\begin{frame}{总结与展望}
+\begin{itemize}
+    \item 已完成现阶段课程学习，具备较扎实的分析基础与PDE基础；
+    \item 研究兴趣与导师方向高度契合，已将重点聚焦于\textbf{非线性双曲守恒律与黎曼问题}；
+    \item 现阶段更重视\textbf{科研学习、问题意识与方向准备}，而不仅是简单的成果罗列；
+    \item 后续希望在导师指导下，逐步形成稳定的研究主题、研究方法与阶段性成果。
+\end{itemize}
+
+\vspace{0.8em}
+\begin{center}
+{\Large 恳请各位老师批评指正！}
+\end{center}
 \end{frame}
 
 \begin{frame}
     \begin{center}
-        {\Huge\calligra Thanks!}
+        {\Huge Thanks!}
     \end{center}
 \end{frame}
 
