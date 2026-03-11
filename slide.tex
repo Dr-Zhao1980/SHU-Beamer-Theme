@@ -1,8 +1,20 @@
 \documentclass{beamer}
 \usepackage{ctex, hyperref}
 \usepackage[T1]{fontenc}%使用8位编码的T1字体编码加载字体编码
-
-
+% 添加参考文献支持
+\usepackage[
+  backend=biber,
+  style=numeric-comp,
+  sorting=none,
+  giveninits=true,
+  doi=false,
+  isbn=false,
+  url=false,
+  eprint=false
+]{biblatex}
+\addbibresource{ref.bib}  % 指定参考文献数据库文件
+\setbeamertemplate{bibliography item}[text]
+\renewcommand*{\bibfont}{\scriptsize}
 % other packages
 \usepackage{latexsym,amsmath,xcolor,multicol,booktabs,calligra}
 \usepackage{graphicx,pstricks,listings,stackengine}
@@ -169,7 +181,7 @@
 现阶段我对自己的定位为：以\textbf{双曲型偏微分方程}为核心方向，
 以\textbf{黎曼问题}为主要切入点，
 在导师指导下逐步学习守恒律理论、Euler 方程组及典型波现象的分析方法，
-为后续开展实质性研究做好准备。
+为后续进入具体问题研究做好准备。
 \end{block}
 
 \end{frame}
@@ -320,20 +332,21 @@
     \begin{column}{0.32\textwidth}
         \begin{block}{分析基础}
         \footnotesize
-        \textbf{代表课程：}\\
+        \textbf{相关课程：}\\
         泛函分析（98）、拓扑学（96）、几何分析（92）
 
-        \vspace{0.5em}
+        \vspace{1em}
         \textbf{主要作用：}\\
         为函数空间、收敛与估计、抽象结构理解提供基础。
+        \vspace{1.8em}
         \end{block}
     \end{column}
 
     \begin{column}{0.32\textwidth}
         \begin{block}{PDE 相关}
         \footnotesize
-        \textbf{代表课程：}\\
-        可积偏微分方程（97）、有限元方法（96）
+        \textbf{相关课程：}\\
+        可积偏微分方程（97）、有限元方法（96）、微分方程（86）
 
         \vspace{0.5em}
         \textbf{主要作用：}\\
@@ -345,12 +358,13 @@
     \begin{column}{0.32\textwidth}
         \begin{block}{其他课程}
         \footnotesize
-        \textbf{代表课程：}\\
-        有限元方法（96）、统计学习与人工智能基础（89）、学术英语写作与交流（94）
+        \textbf{相关课程：}\\
+        学术规范与写作（95）、学术英语写作与交流（94）
 
-        \vspace{0.5em}
+        \vspace{1.5em}
         \textbf{主要作用：}\\
         补充数值视角、交叉方法与学术表达能力。
+        \vspace{1.3em}
         \end{block}
     \end{column}
 \end{columns}
@@ -404,7 +418,7 @@
 我也通过一些实践活动提升综合能力，例如
 \begin{itemize}
 \item 参加华为杯研究生数学建模竞赛并获得三等奖；
-\item 博一担任班长和团支书，负责班团所有活动组织；
+\item 博一阶段担任班长和团支书，负责班团所有活动组织；
 \item 目前担任团支书，参与组织支部的相关工作。
 \end{itemize}
 
@@ -420,8 +434,29 @@
 
 
 
+\begin{frame}{代表性文献与阅读准备}
+    \small
+    \vspace{-0.4em}
+
+    \begin{block}{一、守恒律基础}
+        \textbf{文献：} \cite{Dafermos2016,Bressan2000,Lax1957,Glimm1965} \\
+        \textbf{要点：} 掌握守恒律与平衡律的基本框架，理解弱解、熵条件、Riemann 问题，以及一维小 BV 理论中的存在、唯一性与波相互作用。
+    \end{block}
+
+    \begin{block}{二、Riemann 问题与 Euler 方程组}
+        \textbf{文献：} \cite{ChangHsiao1989,Toro2009,ChangChenYang1995,ChangChenYang2000} \\
+        \textbf{要点：} 熟悉一维气体动力学 Riemann 问题与 Euler 方程组的基本波系；进一步了解二维压缩 Euler 方程中激波、稀疏波与接触间断的相互作用及典型自相似结构。
+    \end{block}
+
+    \begin{block}{三、多维问题、自由边界与跨声激波}
+        \textbf{文献：} \cite{ChenFeldman2003,ChenFeldman2018,Smoller1994} \\
+        \textbf{要点：} 了解多维跨声激波与自由边界问题的基本分析框架，并补充阅读激波理论的经典背景。
+    \end{block}
+\end{frame}
+
+
 % 第二页：围绕导师方向拟系统学习的三个模块
-\begin{frame}[t]{当前科研学习内容（一）}
+\begin{frame}[t, shrink=5]{当前科研学习内容（一）}
 \small
 
 \begin{block}{双曲守恒律}
@@ -430,6 +465,9 @@
 U_t+F(U)_x=0,
 \]
 并理解其弱解、熵条件与基本波结构。
+
+\vspace{0.3em}
+{\scriptsize 参考文献：\cite{Dafermos2016,Bressan2000,Lax1957,Glimm1965}.}
 \end{block}
 
 \begin{block}{黎曼问题}
@@ -442,6 +480,9 @@ U_R, & x>0,
 \end{cases}
 \]
 以及激波、稀疏波、接触间断等典型波现象。
+
+\vspace{0.3em}
+{\scriptsize 参考文献：\cite{ChangHsiao1989,Toro2009,ZhangZheng1990}.}
 \end{block}
 
 \end{frame}
@@ -450,7 +491,7 @@ U_R, & x>0,
 
 
 
-\begin{frame}[t]{当前科研学习内容（二）}
+\begin{frame}[t, shrink=5]{当前科研学习内容（二）}
 \small
 
 \begin{block}{可压 Euler 方程组}
@@ -463,11 +504,17 @@ E_t+\bigl(u(E+p)\bigr)_x=0,
 \end{cases}
 \]
 并初步理解其基本波结构。
+
+\vspace{0.3em}
+{\scriptsize 参考文献：\cite{ChangHsiao1989,Toro2009}.}
 \end{block}
 
 \begin{block}{进一步关注的问题}
-在此基础上，进一步关注二维黎曼问题、
-波相互作用、自由边界与真空状态等更复杂问题。
+在此基础上，进一步关注二维 Riemann 问题中的波相互作用、
+跨声激波与自由边界问题，以及含反应项模型中的波传播问题。
+
+\vspace{0.3em}
+{\scriptsize 参考文献：\cite{ZhangZheng1990,ChangChenYang1995,ChangChenYang2000,ChenFeldman2003,ChenFeldman2018,Smoller1994}.}
 \end{block}
 
 \end{frame}
@@ -493,16 +540,19 @@ E_t+\bigl(u(E+p)\bigr)_x=0,
 \section{研究方向理解与问题认识}
 % ============================================================================
 
-\begin{frame}{选择该方向的原因}
+\begin{frame}[shrink=5]{选择该方向的原因}
 \begin{block}{为什么选择黎曼问题作为切入点？}
 黎曼问题是双曲守恒律研究中的基本模型，它能够集中体现激波、稀疏波、接触间断等典型波结构的形成机制，是理解更复杂初边值问题的重要起点。
 \end{block}
 
 \begin{itemize}
     \item \textbf{从一维到高维：}高维问题中的波相互作用更复杂，几何结构和自由边界现象更加突出；
-    \item \textbf{从理想到实际：}真空、反应项、边界效应、喷流和反射等因素会显著提高问题难度；
+    \item \textbf{从理想到实际：}真空、反应项、边界效应以及跨声激波与反射--衍射等现象会显著提高问题难度；
     \item \textbf{从定性到定量：}不仅需要知道“会出现什么波”，还需要分析其相互作用机制、存在区间和稳定性特征。
 \end{itemize}
+
+\vspace{0.2em}
+{\scriptsize 参考文献：\cite{ZhangZheng1990,ChenFeldman2003,ChenFeldman2018}.}
 
 \begin{alertblock}{个人认识}
 我希望以黎曼问题为基本切入点，在扎实掌握经典理论的基础上，逐步过渡到高维、自由边界和反应流等更复杂的问题。
@@ -544,45 +594,54 @@ E_t+\bigl(u(E+p)\bigr)_x=0,
 \begin{columns}[T,totalwidth=\textwidth]
     \begin{column}{0.32\textwidth}
         \begin{block}{方向A：黎曼问题}
-        \begin{minipage}[t][3.15cm][t]{\linewidth}
+        \begin{minipage}[t]{\linewidth}
         \footnotesize
         \raggedright
-        {\setlength{\itemsep}{0.38em}
+        {\setlength{\itemsep}{0.30em}
         \begin{itemize}
             \item 自相似框架下的波结构分类
             \item 接触间断与激波的相互作用
             \item 特定初值构型下解的局部与整体行为
         \end{itemize}}
+
+        \vspace{0.2em}
+        {\scriptsize 参考：\cite{ZhangZheng1990,ChangChenYang1995,ChangChenYang2000}.}
         \end{minipage}
         \end{block}
     \end{column}
 
     \begin{column}{0.32\textwidth}
         \begin{block}{方向B：自由边界}
-        \begin{minipage}[t][3.15cm][t]{\linewidth}
+        \begin{minipage}[t]{\linewidth}
         \footnotesize
         \raggedright
-        {\setlength{\itemsep}{0.38em}
+        {\setlength{\itemsep}{0.30em}
         \begin{itemize}
-            \item 真空边界附近的解结构
-            \item 超声速喷流中的拦截激波
+            \item 真空/自由边界附近的解结构
+            \item 跨声激波与反射--衍射中的自由边界结构
             \item 几何边界对流动形态的影响
         \end{itemize}}
+
+        \vspace{0.2em}
+        {\scriptsize 参考：\cite{ChenFeldman2003,ChenFeldman2018}.}
         \end{minipage}
         \end{block}
     \end{column}
 
     \begin{column}{0.32\textwidth}
         \begin{block}{方向C：反应流}
-        \begin{minipage}[t][3.15cm][t]{\linewidth}
+        \begin{minipage}[t]{\linewidth}
         \footnotesize
         \raggedright
-        {\setlength{\itemsep}{0.38em}
+        {\setlength{\itemsep}{0.30em}
         \begin{itemize}
-            \item 反应项引入后的波系耦合
-            \item 爆燃/爆轰波中的传播机制
+            \item 反应项引入后的波传播与耦合机制
+            \item 含反应项模型中的波稳定性与层结构
             \item 数学模型与物理背景的对应关系
         \end{itemize}}
+
+        \vspace{0.2em}
+        {\scriptsize 参考：\cite{Smoller1994}.}
         \end{minipage}
         \end{block}
     \end{column}
@@ -594,7 +653,8 @@ E_t+\bigl(u(E+p)\bigr)_x=0,
 \footnotesize
 以\textbf{黎曼问题}为主要切入，优先从\textbf{可控、经典、可积累}的问题入手，
 再逐步过渡到\textbf{自由边界、喷流与反应流}等更复杂模型；
-在推进过程中同步关注\textbf{数学结构、物理背景与分析方法}之间的对应关系。
+在推进过程中同步关注\textbf{数学结构、物理背景与分析方法}之间的对应关系，
+前期以文献梳理和经典问题学习为主。
 \end{alertblock}
 
 \end{frame}
@@ -623,7 +683,7 @@ E_t+\bigl(u(E+p)\bigr)_x=0,
 \begin{frame}{总结与展望}
 \begin{itemize}
     \item 已完成现阶段课程学习，具备较扎实的分析基础与PDE基础；
-    \item 研究兴趣与导师方向符合，重点聚焦于\textbf{非线性双曲守恒律与黎曼问题}；
+    \item 研究兴趣与导师方向相契合，重点聚焦于\textbf{非线性双曲守恒律与黎曼问题}；
     \item 后续希望在导师指导下，逐步形成稳定的研究主题、研究方法与阶段性成果。
 \end{itemize}
 
@@ -633,10 +693,21 @@ E_t+\bigl(u(E+p)\bigr)_x=0,
 \end{center}
 \end{frame}
 
-\begin{frame}
-    \begin{center}
-        {\Huge Thanks!}
-    \end{center}
+\begin{frame}[allowframebreaks]{参考文献}
+\printbibliography[heading=none]
 \end{frame}
 
+
+
+\begin{frame} 
+    \begin{center} 
+        {\Huge Thanks!} 
+    \end{center} 
+\end{frame}
+
+
+
 \end{document}
+
+
+
